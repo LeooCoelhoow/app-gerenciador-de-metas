@@ -18,3 +18,7 @@
   Coletar os dados
   Processar os dados (manipular, alterar...)
   Apresentar os dados
+
+## Escopo e variáveis
+  Cada escopo é representado por um par de chaves {}
+  Se não tiver as chaves é global
