@@ -14,6 +14,6 @@ console.log(testezinho);
 console.log(testezinho);
 
 {
-
+  
 }
 //novo escopo, novo grupo de estrutura
