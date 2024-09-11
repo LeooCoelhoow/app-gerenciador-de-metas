@@ -1,19 +1,25 @@
-// hello world
-let mensagem = "hello world!"
-//let é uma variável onde se guardam informações e eu posso mudar posteriormente o valor da função
-const testezinho = 7
-// const tbm é uma variável porém não posso mudar posteriormente o valor da função
-console.log(mensagem);
-console.log(mensagem);
-console.log(mensagem);
-// console é um objeto
-// .log("") isso é uma função
-// "hello world!" é uma string
-console.log(testezinho);
-console.log(testezinho);
-console.log(testezinho);
+// arrays
+//let metas = ["leo", "alo"]  //colchetes são os arrays
 
-{
-  
+// console.log(metas[0]) utilizando o [índice] para saber qual elemento estou chamando
+
+//console.log(metas[1] + ", " + metas[0]) // usar o '+' para concatenar ou juntar os elementos, o primeiro elemento é sempre 0
+
+// objetos, as chaves são um objeto
+let meta = {
+  value: 'ler um livro todo mês',
+  checked: false,
+  log: (info) => {  // Entre parenteses é o parâmetro
+    console.log(info) //
+  }
 }
-//novo escopo, novo grupo de estrutura
+
+let metas = [
+  meta, // Que está definido como 'ler um livro todo mês'
+  {
+    value: "caminhar 20 minutos por dia",
+    checked: false,
+  }
+]
+
+console.log(metas[1].value);
