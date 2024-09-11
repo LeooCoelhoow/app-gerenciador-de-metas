@@ -28,6 +28,7 @@
 
 ## Condicionais
   switch
+  if/else
 
 ## Modulos em Node.js
   Importação de módulos (require, commonJS)
