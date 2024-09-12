@@ -14,6 +14,11 @@
   * Controle de fluxo (if/else)
   * Estrutura de repetição (for, while)
 
+## Arrays:
+Uma lista que contém qualquer tipo de dado
+Métodos de array: push, [find, forEach, filter] HOF => higher Order Functions
+Uma HOF sempre recebe uma (() => {})
+
 ## Fases da resolução de um problema
   Coletar os dados
   Processar os dados (manipular, alterar...)

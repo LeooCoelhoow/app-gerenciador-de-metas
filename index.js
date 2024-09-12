@@ -18,18 +18,18 @@ const cadastrarMeta = async () => {
 const listarMetas = async () => {
   const respostas = await checkbox({
     message: "Use as setas para mudar de meta, o espaço para marcar ou desmarcar e o Enter para finalizar essa etapa",
-    choices: [...metas], //uso da "..." para pegar tudo do metas
+    choices: [...metas], //uso da "..." para pegar tudo do metas, spread operator
     instructions: false,
+  })
+
+  metas.forEach((m) => {
+    m.checked = false
   })
 
   if(respostas.length == 0){
     console.log("Nenhuma meta selecionada!")
     return
   }
-
-  metas.forEach((m) => {
-    m.checked = false
-  })
 
   respostas.forEach((resposta) => { 
     const meta = metas.find((m) => {
@@ -41,6 +41,23 @@ const listarMetas = async () => {
   //função forEach significa => para cada e find => procurar
 
   console.log('meta(s) concluída(s)')
+}
+
+const metasRealizadas = async () => {
+  const realizadas = metas.filter((meta) => {
+    return meta.checked //se estiver como true aparece no console.log
+    })
+
+    if(realizadas.length == 0) {
+      console.log('não existem metas realizadas! :(')
+      return
+    }
+
+    await select({
+      message: "Metas Realizadas",
+      choices: [...realizadas]
+    })
+  //vai pegar a meta indicada no filter e retornar true 
 }
 
 
@@ -60,6 +77,10 @@ const start = async () => {
           value: "listar"
         },
         {
+          name: "Metas realizadas",
+          value: "realizadas"
+        },
+        {
           name: "Sair",
           value: "sair"
         }
@@ -74,6 +95,9 @@ const start = async () => {
         break
       case "listar":
         await listarMetas()
+        break
+      case "realizadas":
+        await metasRealizadas()
         break
       case "sair":
         console.log("Até a próxima")
