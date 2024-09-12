@@ -54,10 +54,26 @@ const metasRealizadas = async () => {
     }
 
     await select({
-      message: "Metas Realizadas",
+      message: "Metas Realizadas" + realizadas.length,
       choices: [...realizadas]
     })
   //vai pegar a meta indicada no filter e retornar true 
+}
+
+const metasAbertas = async () => {
+  const abertas = metas.filter((meta) => {
+    return !meta.checked //"!" no dado booleano inverte o valor dele
+  })
+
+  await select({
+    message: "Metas abertas " + abertas.length,
+    choices: [...abertas]
+  })
+
+  if(abertas.length == 0){
+    console.log("Você concluiu todas as suas metas, parabéns! :D")
+    return
+  }
 }
 
 
@@ -81,6 +97,10 @@ const start = async () => {
           value: "realizadas"
         },
         {
+          name: "Metas abertas",
+          value: "abertas"
+        },
+        {
           name: "Sair",
           value: "sair"
         }
@@ -98,6 +118,9 @@ const start = async () => {
         break
       case "realizadas":
         await metasRealizadas()
+        break
+      case "abertas":
+        await metasAbertas()
         break
       case "sair":
         console.log("Até a próxima")
