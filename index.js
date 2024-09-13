@@ -54,7 +54,7 @@ const metasRealizadas = async () => {
     }
 
     await select({
-      message: "Metas Realizadas" + realizadas.length,
+      message: "Metas Realizadas: " + realizadas.length,
       choices: [...realizadas]
     })
   //vai pegar a meta indicada no filter e retornar true 
@@ -65,15 +65,43 @@ const metasAbertas = async () => {
     return !meta.checked //"!" no dado booleano inverte o valor dele
   })
 
-  await select({
-    message: "Metas abertas " + abertas.length,
-    choices: [...abertas]
-  })
-
   if(abertas.length == 0){
-    console.log("Você concluiu todas as suas metas, parabéns! :D")
+    console.log("Você concluiu todas as suas metas, parabéns!")
     return
   }
+
+  await select({
+    message: "Metas abertas: " + abertas.length,
+    choices: [...abertas]
+  })
+  
+}
+
+const removerMetas = async () => {
+  const metasDesmarcadas = metas.map((meta) => { 
+    return { value: meta.value, checked: false } 
+  })
+  //Crio um objeto no return para me retornar o que eu quero
+  //Com o "map" eu modifico o array original
+
+  const itensADeletar = await checkbox({
+    message: "Selecione os itens que deseja remover",
+    choices: [...metasDesmarcadas],
+    instructions: false,
+  })
+
+  if(itensADeletar.length == 0){
+    console.log("Não há itens para deletar")
+    return
+  }
+
+  itensADeletar.forEach((item) => {
+    metas = metas.filter((meta) => {
+      return meta.value != item
+    })
+  })
+
+  console.log("Meta(s) deletada(s) com sucesso!")
 }
 
 
@@ -101,6 +129,10 @@ const start = async () => {
           value: "abertas"
         },
         {
+          name: "Remover metas",
+          value: "remover"
+        },
+        {
           name: "Sair",
           value: "sair"
         }
@@ -122,6 +154,9 @@ const start = async () => {
       case "abertas":
         await metasAbertas()
         break
+      case "remover":
+        await removerMetas()
+        break  
       case "sair":
         console.log("Até a próxima")
         return  

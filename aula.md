@@ -16,7 +16,7 @@
 
 ## Arrays:
 Uma lista que contém qualquer tipo de dado
-Métodos de array: push, [find, forEach, filter] HOF => higher Order Functions
+Métodos de array: push, [find, forEach, filter, map] HOF => higher Order Functions
 Uma HOF sempre recebe uma (() => {})
 O return sempre volta para a última função mais próxima dele
 
