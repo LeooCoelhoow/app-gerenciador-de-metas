@@ -39,3 +39,9 @@ O return sempre volta para a última função mais próxima dele
 ## Modulos em Node.js
   Importação de módulos (require, commonJS)
   Biblioteca 'inquirer' para criar prompts interativos
+  FS (File System), um módulo nativo do node.js
+
+## JSON
+ JavaScript Object Notation (.jason)
+ JSON.parse(//transforma o JSON para JS) 
+ JSON.stringify(//transforma de JS para JSON)

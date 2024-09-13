@@ -1,0 +1,26 @@
+[
+  {
+    "value": "Fazer 5 refeições no dia",
+    "checked": false
+  },
+  {
+    "value": "Estudar por pelo menos 1h por dia",
+    "checked": false
+  },
+  {
+    "value": "Treinar pelo menos 3 vezes na semana",
+    "checked": false
+  },
+  {
+    "value": "Ler pelo menos 15 minutos por dia",
+    "checked": false
+  },
+  {
+    "value": "Dormir ao menos 7h por noite",
+    "checked": false
+  },
+  {
+    "value": "Beber 2.5L de água por dia",
+    "checked": false
+  }
+]
